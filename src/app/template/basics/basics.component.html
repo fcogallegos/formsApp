@@ -10,13 +10,20 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Product</label>
                 <div class="col-sm-9">
-                  <input type="text" 
+                  
+                    <input type="text" 
                          class="form-control"
                          ngModel
                          name="product"
                          placeholder="Product Name"
-                         required >
-                  <span class="form-text text-danger">Must be three letters</span>
+                         required 
+                         minlength="3"
+                    >
+                  <span class="form-text text-danger"
+                        *ngIf="myForm.controls.product?.invalid &&
+                               myForm.controls.product?.touched"    
+                    >Must be three letters</span>
+                
                 </div>
             </div>
     
@@ -63,6 +70,12 @@
 
         <span>Valid</span>
         <pre>{{ myForm.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ myForm.pristine }}</pre>
+        
+        <span>Touched</span>
+        <pre>{{ myForm.touched }}</pre>
 
         <span>Value</span>
         <pre>{{ myForm.value | json }}</pre>
