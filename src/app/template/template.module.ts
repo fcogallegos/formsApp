@@ -8,13 +8,18 @@ import { BasicsComponent } from './basics/basics.component';
 import { DinamicsComponent } from './dinamics/dinamics.component';
 import { SwitchesComponent } from './switches/switches.component';
 
+  
+import { CustomMinDirective } from './directives/custom-min.directive';
+
 
 
 @NgModule({
   declarations: [
     BasicsComponent,
     DinamicsComponent,
-    SwitchesComponent
+    SwitchesComponent,
+
+    CustomMinDirective
   ],
   imports: [
     CommonModule,
