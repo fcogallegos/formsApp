@@ -21,10 +21,20 @@ export class BasicsComponent implements OnInit {
            this.myForm?.controls.product?.touched;
   }
 
+  // validPrice() {
+  //    console.log(this.myForm);
+  // }
+
+  validPrice(): boolean {
+    //console.log(this.myForm);
+    return this.myForm?.controls.price?.touched &&
+           this.myForm?.controls.price?.value < 0;
+
+ }
+
   //save( myForm: NgForm ) {
     save(  ) {
     console.log( this.myForm.value );
-    console.log(  );
   }
 
 }
