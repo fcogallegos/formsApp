@@ -1,1 +1,83 @@
-<p>dinamics works!</p>
+<h2>Template: <small>Dinamics</small></h2>
+<hr>
+
+
+<form (ngSubmit)="save()" autocomplete="off" #myForm="ngForm">
+    
+    <!--Name-->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+            <input class="form-control"
+                   placeholder="Person's name"
+                   name="person"
+                   [ngModel]="initForm.name"
+                   required
+
+            >
+            <span class="form-text text-danger"
+                  *ngIf="myForm.controls.person?.errors &&
+                         myForm.controls.person?.touched"
+            >This field is required</span>
+        </div>
+    </div>
+
+    <!--Add-->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Add</label>
+        <div class="col-sm-9">
+
+            <div class="input-group mb-3">
+                <input class="form-control"
+                   placeholder="Add favorite "
+                >
+                <button class="btn btn-outline-primary"
+                        type="button"
+                >Add</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Name-->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+            <input class="form-control"
+                   placeholder="Person's name"
+                   name="person"
+                   [ngModel]="initForm.name"
+                   required
+
+            >
+            <span class="form-text text-danger"
+                  *ngIf="myForm.controls.person?.errors &&
+                         myForm.controls.person?.touched"
+            >This field is required</span>
+        </div>
+    </div>
+
+
+    <!-- Play's list favorite -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Favorites</label>
+        <div class="col-sm-9">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit"
+                    class="btn btn-primary float-end"
+                    [disabled]="myForm.invalid"
+            >
+                Save
+            </button>
+        </div>
+    </div>
+</form>
