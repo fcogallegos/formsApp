@@ -33,11 +33,16 @@ export class DinamicsComponent {
 
 
   save() {
-    console.log(this.myForm.controls.person.value);
+    //console.log(this.myForm.controls.person.value);
+    console.log('Form posted');
 
   //  this.myForm.resetForm({
   //    name: ''
   //  })
+  }
+
+  delete(index: number) {
+    this.person.favorites.splice(index, 1);
   }
   
 
