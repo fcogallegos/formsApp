@@ -19,9 +19,13 @@ interface Favorite {
   styles: [
   ]
 })
+
+
 export class DinamicsComponent {
 
   @ViewChild('myForm') myForm!: NgForm;
+
+  newPlay: string = '';
 
   person: Person = {
     name: 'Francisco',
@@ -39,6 +43,16 @@ export class DinamicsComponent {
   //  this.myForm.resetForm({
   //    name: ''
   //  })
+  }
+
+  addPlay() {
+    const newFavorite: Favorite = {
+      id: this.person.favorites.length + 1,
+      name: this.newPlay
+    }
+
+    this.person.favorites.push({ ...newFavorite });
+    this.newPlay = '';
   }
 
   delete(index: number) {

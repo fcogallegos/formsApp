@@ -30,10 +30,14 @@
             <div class="input-group mb-3">
                 <input class="form-control"
                    placeholder="Add favorite"
+                   [(ngModel)]="newPlay"
+                   (keyup.enter)="addPlay()"
+                   name="newPlay"
                 >
 
                 <button class="btn btn-outline-primary"
                         type="button"
+                        (click)="addPlay()"
                 >Add</button>
             </div>
         </div>
