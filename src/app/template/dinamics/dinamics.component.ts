@@ -1,5 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
+
+
+interface Person {
+  name: string;
+  favorites: Favorite [];
+}
+
+interface Favorite {
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-dinamics',
@@ -7,25 +19,25 @@ import { NgForm } from '@angular/forms';
   styles: [
   ]
 })
-export class DinamicsComponent implements OnInit {
+export class DinamicsComponent {
 
   @ViewChild('myForm') myForm!: NgForm;
 
-  initForm = {
-    name: 'test'
+  person: Person = {
+    name: 'Francisco',
+    favorites: [
+      { id: 1, name: 'Metal Gear' },
+      { id: 2, name: 'DeathStranding' }
+    ]
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   save() {
     console.log(this.myForm.controls.person.value);
 
-    this.myForm.resetForm({
-      name: ''
-    })
+  //  this.myForm.resetForm({
+  //    name: ''
+  //  })
   }
   
 

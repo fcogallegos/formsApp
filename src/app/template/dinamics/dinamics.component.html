@@ -11,7 +11,7 @@
             <input class="form-control"
                    placeholder="Person's name"
                    name="person"
-                   [ngModel]="initForm.name"
+                   [ngModel]="person.name"
                    required
 
             >
@@ -39,34 +39,19 @@
         </div>
     </div>
 
-    <!--Name-->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Name</label>
-        <div class="col-sm-9">
-            <input class="form-control"
-                   placeholder="Person's name"
-                   name="person"
-                   [ngModel]="initForm.name"
-                   required
-
-            >
-            <span class="form-text text-danger"
-                  *ngIf="myForm.controls.person?.errors &&
-                         myForm.controls.person?.touched"
-            >This field is required</span>
-        </div>
-    </div>
+    
 
 
     <!-- Play's list favorite -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favorites</label>
         <div class="col-sm-9">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
+            <input  *ngFor="let play of person.favorites; let i = index"
+                    [(ngModel)]="play.name"
+                    name="favorite_{{ i }}"
+                    class="form-control mb-1"
+                    required
+            >                
         </div>
     </div>
 
@@ -81,3 +66,7 @@
         </div>
     </div>
 </form>
+
+
+<span>Person</span>
+<pre>{{ person | json }}</pre>
