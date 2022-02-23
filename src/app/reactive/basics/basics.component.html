@@ -51,7 +51,9 @@
                 <div class="col">
     
                     <button type="submit"
-                            class="btn btn-primary float-end">
+                            class="btn btn-primary float-end"
+                            [disabled]="myForm.invalid"
+                            >
                         Save
                     </button>
     
