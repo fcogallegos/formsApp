@@ -16,7 +16,8 @@
                          formControlName="name"
                          placeholder="Product Name"
                     >
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger"
+                          *ngIf="fieldIsValid('name')">
                         Must be three letters
                     </span>
                 
@@ -31,7 +32,8 @@
                          formControlName="price" 
                          placeholder="Price"
                   >
-                  <span class="form-text text-danger">
+                  <span class="form-text text-danger"
+                        *ngIf="fieldIsValid('price')">
                       Price must be greater than 0
                   </span>     
                 </div>
@@ -44,6 +46,11 @@
                          class="form-control" 
                          formControlName="stocks"
                          placeholder="Product's stock">
+                  
+                  <span class="form-text text-danger"
+                        *ngIf="fieldIsValid('stocks')">
+                      Stocks must be greater than 0
+                  </span>     
                 </div>
             </div>  
     
@@ -79,6 +86,9 @@
 
         <span>Value</span>
         <pre>{{ myForm.value | json }}</pre>
+
+        <span> Price </span>
+        <pre>{{ myForm.controls.price.errors| json }}</pre>
 
     </div>
 </div>

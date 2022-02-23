@@ -17,12 +17,16 @@ export class BasicsComponent {
   // });
 
   myForm: FormGroup = this.fb.group({
-    name: ['RTX4080ti', [ Validators.required, Validators.minLength(3) ] ],
+    name: ['', [ Validators.required, Validators.minLength(3) ] ],
     price: [ 0, [ Validators.required, Validators.min(0) ] ],
     stocks: [ 0, [ Validators.required, Validators.min(0) ] ] 
   })
 
   constructor( private fb: FormBuilder ) { }
 
+
+  fieldIsValid( field: string ) {
+    return this.myForm.controls[field].errors && this.myForm.controls[field].touched;
+  }
 
 }
