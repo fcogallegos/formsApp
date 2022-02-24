@@ -41,20 +41,20 @@
     <!-- Play's list favorite -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favorites</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9" formArrayName="favorites">
 
-            <!-- <div class="input-group mb-1"
-                    *ngFor="let play of person.favorites; let i = index">
+            <div class="input-group mb-1"
+                *ngFor="let favorite of favoritesArr.controls; let i = index"    
+            >
                 <input  
                     class="form-control"
-                    required
+                    [formControlName]="i"
                 >
                 
                 <button class="btn btn-outline-danger"
                         type="button"
-                        (click)="delete(i)"
                 >Delete</button>
-            </div>   -->
+            </div>  
         </div>
     </div>
 
