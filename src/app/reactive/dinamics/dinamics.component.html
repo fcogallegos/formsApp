@@ -2,17 +2,19 @@
 <hr>
 
 
-<form autocomplete="off" >
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="save()" >
     
     <!--Name-->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
             <input class="form-control"
+                   formControlName="name"
                    placeholder="Person's name"
             >
             <span class="form-text text-danger"
-            >This field is required</span>
+                  *ngIf="fieldIsValid('name')"
+            >Field is required and must be greater than two letters</span>
         </div>
     </div>
 
@@ -60,6 +62,7 @@
         <div class="col-sm-12">
             <button type="submit"
                     class="btn btn-primary float-end"
+                    [disabled]="myForm.invalid"
             >
                 Save
             </button>
@@ -70,3 +73,21 @@
 <!-- 
 <span>Person</span>
 <pre>{{ person | json }}</pre> -->
+
+<div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{ myForm.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ myForm.pristine }}</pre>
+        
+        <span>Touched</span>
+        <pre>{{ myForm.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ myForm.value | json }}</pre>
+
+    </div>
+</div>
