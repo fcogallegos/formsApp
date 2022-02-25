@@ -54,4 +54,8 @@ export class DinamicsComponent implements OnInit {
     console.log( this.myForm.value );
   }
 
+  delete(index: number) {
+    this.favoritesArr.removeAt( index );
+  }
+
 }
